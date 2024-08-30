@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pip Calculator</title>
+    <title>Pip Calculator with Leverage</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <h1>Forex Pip Calculator</h1>
+        <h1>Forex Pip Calculator with Leverage</h1>
         
         <form id="pipCalculatorForm">
             <div class="form-group">
@@ -23,11 +23,13 @@
                 <label for="exchangeRate">Current Exchange Rate:</label>
                 <input type="number" id="exchangeRate" placeholder="e.g. 1.1234" step="0.0001" required>
             </div>
+            <div class="form-group">
+                <label for="leverage">Leverage:</label>
+                <input type="number" id="leverage" placeholder="e.g. 100" step="1" required>
+            </div>
             <button type="button" onclick="calculatePipValue()">Calculate Pip Value</button>
         </form>
-        <div class="fff">
-            <p>Created by Val</p>
-        </div>
+        
         <div id="pipValueResult"></div>
     </div>
 
