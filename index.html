@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pip Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Forex Pip Calculator</h1>
+        
+        <form id="pipCalculatorForm">
+            <div class="form-group">
+                <label for="currencyPair">Currency Pair:</label>
+                <input type="text" id="currencyPair" placeholder="e.g. EUR/USD" required>
+            </div>
+            <div class="form-group">
+                <label for="positionSize">Position Size (in lots):</label>
+                <input type="number" id="positionSize" placeholder="e.g. 1.0" step="0.01" required>
+            </div>
+            <div class="form-group">
+                <label for="exchangeRate">Current Exchange Rate:</label>
+                <input type="number" id="exchangeRate" placeholder="e.g. 1.1234" step="0.0001" required>
+            </div>
+            <button type="button" onclick="calculatePipValue()">Calculate Pip Value</button>
+        </form>
+        <div class="fff">
+            <p>Created by Val</p>
+        </div>
+        <div id="pipValueResult"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
