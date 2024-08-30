@@ -2,13 +2,15 @@ function calculatePipValue() {
     const currencyPair = document.getElementById('currencyPair').value.toUpperCase();
     const positionSize = parseFloat(document.getElementById('positionSize').value);
     const exchangeRate = parseFloat(document.getElementById('exchangeRate').value);
-
-    if (isNaN(positionSize) || isNaN(exchangeRate)) {
-        alert("Please enter valid numbers for position size and exchange rate.");
+    const leverage = parseFloat(document.getElementById('leverage').value);
+    
+    if (isNaN(positionSize) || isNaN(exchangeRate) || isNaN(leverage)) {
+        alert("Please enter valid numbers for all fields.");
         return;
     }
-
+    
     let pipValue;
+    let leveragedValue;
 
     // Determine pip value based on currency pair
     if (currencyPair.endsWith("USD")) {
@@ -20,5 +22,11 @@ function calculatePipValue() {
         return;
     }
 
-    document.getElementById('pipValueResult').textContent = `Pip Value: $${pipValue.toFixed(2)}`;
+    // Calculate the leveraged value
+    leveragedValue = pipValue * leverage;
+
+    document.getElementById('pipValueResult').innerHTML = `
+        <p>Pip Value: $${pipValue.toFixed(2)}</p>
+        <p>Leveraged Pip Value: $${leveragedValue.toFixed(2)} (with 1:${leverage} leverage)</p>
+    `;
 }
